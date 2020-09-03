@@ -1,4 +1,4 @@
-from classes import Admin, Picture
+from .classes import Admin, Picture
 
 admin = Admin()
 picture = Picture()
