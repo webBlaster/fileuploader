@@ -1,9 +1,10 @@
 from flask import request, escape, render_template, url_for, redirect, jsonify
 from config import app
+from model.objects import admin, picture
 
 @app.route('/')
 def index():
-    return render_template('register.html')
+    return render_template('dashboard.html')
 
 #login route
 @app.route('/login', methods=['POST'])
