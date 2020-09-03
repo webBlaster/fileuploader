@@ -4,7 +4,7 @@ from werkzeug.security import generate_password_hash, check_password_hash
 #imports for json
 from flask import jsonify
 #database imports
-from database_setup import db, Admin as admin, Picture as picture
+from .database_setup import db, Admin as admin, Picture as picture
 class Admin():
     def signup(self):
         pass
