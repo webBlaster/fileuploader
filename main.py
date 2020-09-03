@@ -1,9 +1,9 @@
-from flask import request, escape
+from flask import request, escape, render_template, url_for, redirect, jsonify
 from config import app
 
 @app.route('/')
 def index():
-    return "Welcome"
+    return render_template('login.html')
 
 #login route
 @app.route('/login', methods=['POST'])
