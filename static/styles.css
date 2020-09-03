@@ -1,0 +1,12 @@
+.login {
+    width:40%;
+    margin:20vh auto;
+    padding:50px;
+    border-radius: 10px;
+}
+
+@media only screen and (max-width: 600px){
+    .login {
+        width:80%;
+    }
+}
