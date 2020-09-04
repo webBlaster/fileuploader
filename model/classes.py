@@ -43,7 +43,8 @@ class Admin():
                 return jsonify(
                         message = "user already signed in",
                         email = session['email'],
-                        id = session['id']
+                        id = session['id'],
+                        logged = True
                         )
         #check if details are in the database
             check = session.query(admin).filter_by(email = email).first()
@@ -70,7 +71,10 @@ class Admin():
                         logged = False
                         )
         else:
-            return "really!! jerk post man?"    
+            return jsonify(
+                message = "really!! jerk post man?",
+                logged = False
+                )    
     
     def logout(self):
         #unset session variables
@@ -79,6 +83,7 @@ class Admin():
             
         return jsonify(
                 message = "user has been successfully logged out",
+                logged = False
                     )
 
 
