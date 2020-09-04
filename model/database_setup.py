@@ -11,8 +11,7 @@ class Admin(db.Model):
 
 class Picture(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    title = db.Column(db.String(80), unique=True, nullable=False)
-    description = db.Column(db.String(225), unique=True, nullable=True)
+    tittle = db.Column(db.String(80), unique=True, nullable=False)
     url = db.Column(db.String(225), unique=True, nullable=False)
 
 db.create_all()

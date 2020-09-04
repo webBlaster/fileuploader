@@ -7,16 +7,16 @@ def index():
     return render_template('dashboard.html')
 
 #login route
-@app.route('/login', methods=['POST'])
+@app.route('/signin', methods=['POST','GET'])
 def login():
     email = escape(request.json.get('email'))
     password = escape(request.json.get('password'))
-    return "login"
+    return "signin"
 
 # register route
-@app.route('/register', methods=['POST'])
+@app.route('/register', methods=['POST','GET'])
 def register():
-    username = escape(request.json.get('name'))
+    username = escape(request.json.get('username'))
     email = escape(request.json.get('email'))
     password = escape(request.json.get('password'))
 
