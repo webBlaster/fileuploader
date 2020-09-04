@@ -6,7 +6,7 @@ from model.objects import admin, picture
 def index():
     return render_template('dashboard.html')
 
-#login route
+#sign in route
 @app.route('/signin', methods=['POST','GET'])
 def login():
     email = escape(request.json.get('email'))
@@ -16,7 +16,6 @@ def login():
 # register route
 @app.route('/register', methods=['POST','GET'])
 def register():
-    username = escape(request.json.get('username'))
     email = escape(request.json.get('email'))
     password = escape(request.json.get('password'))
 
