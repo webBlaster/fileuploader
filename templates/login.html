@@ -19,15 +19,14 @@
      <!-- Compiled and minified JavaScript -->
      <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <title>File Uploader</title>
-    <style>
-    </style>
 </head>
 <body class="blue">
-    <form class="login center white" method="post">
+    <form action="{{url_for('signin')}}" class="login center white" method="post">
         <h5>SIGN IN</h5>
         <input type="email" name="email" class="input" placeholder="email" required/>
         <input type="password" name="password" class="input" placeholder="password" required/>
         <input type="submit" value="Login" class="btn input blue">
     </form>
+    <a href="{{url_for('register')}}"><h6 class="black">Register</h6></a>
 </body>
 </html>

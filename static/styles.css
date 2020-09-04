@@ -8,5 +8,6 @@
 @media only screen and (max-width: 600px){
     .login {
         width:70%;
+        padding:40px;
     }
 }
