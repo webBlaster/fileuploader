@@ -8,16 +8,15 @@ from .database_setup import db, Admin as admin, Picture as picture
 #imports for session
 from flask import session
 class Admin():
-    def signup(self, username, email, password):
+    def signup(self, email, password):
         #make sure data is not empty
-        if username and email and password != None:
+        if  email and password != None:
             #encrypt password
             password = generate_password_hash(password)
             #check if user already exist
             check = db.session.query(admin).one()
             if check == None:
                 new_user = admin(
-                        username = username,
                         email = email,
                         password = password,
                    )
@@ -59,7 +58,7 @@ class Admin():
                 if result == True:
                     #start user session
                     session['id'] = check.id
-                    session['username'] = check.username
+                    session['email'] = check.email
                     return jsonify(
                         message = "login successful welcome",
                         logged = True
@@ -76,7 +75,6 @@ class Admin():
     def logout(self):
         #unset session variables
         del session['id']
-        del session['username']
         del session['email']
             
         return jsonify(
