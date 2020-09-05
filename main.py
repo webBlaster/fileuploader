@@ -71,6 +71,12 @@ def dashboard():
         else:
             return redirect(url_for('index'))
 
+#get all images
+@app.route('/images', methods=['GET'])
+def all_images():
+    result = picture.get_all_images()
+    return result
+
 # Default port:
 if __name__ == '__main__':
     port = os.environ.get('PORT', 5000)
