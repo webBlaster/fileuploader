@@ -7,6 +7,9 @@ from flask import jsonify
 from .database_setup import db, Admin as admin, Picture as picture
 #imports for session
 from flask import session
+#cloudinary
+import cloudinary as cloud
+from cloudinary import api, uploader
 class Admin():
     def signup(self, email, password):
         #make sure data is not empty
@@ -100,7 +103,7 @@ class Admin():
 
 
 class Picture():
-    def upload_image(self, tittle):
+    def upload_image(self, tittle, image):
         pass
     def delete_image(self, id):
         pass
