@@ -36,12 +36,12 @@
 
 
 
-    <h6 class="center white-text"><a href="{{url_for('signout')}}" class="white-text">logout</a></h6>
+    <h6 class="center white-text"><a href="{{url_for('signout')}}" class="white-text">Logout</a></h6>
     <form  class="addimage upload center white" method="POST" enctype="multipart/form-data">
-        <h5>ADD IMAGE</h5>
-        <input type="text" name="title" class="input" placeholder="tittle" required/>
+        <h5>Add Image Here</h5>
+        <input type="text" name="title" class="input" placeholder="Title" required/>
         <input type="file" name="file" value="upload" class="input" accept="image/*" required/><br/>
-        <input type="submit" value="upload" class="btn blue" />
+        <button type="submit" class="btn blue">Upload</button>
     </form>
     <section class="container center">
         <h4></h4>
