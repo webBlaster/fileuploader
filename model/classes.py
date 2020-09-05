@@ -121,6 +121,9 @@ class Picture():
                 #Store picture details in database
                 db.session.add(new_picture)
                 db.session.commit()
+                return {
+                "message":"upload successful"
+                }
             else:
                 return result
         else:
