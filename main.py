@@ -1,7 +1,7 @@
 from flask import request, escape, render_template, url_for, redirect, jsonify, flash
 from config import app
 from model.objects import admin, picture
-
+import os
 @app.route('/')
 def index():
     return render_template('login.html')
@@ -62,5 +62,6 @@ def dashboard():
 
 # Default port:
 if __name__ == '__main__':
+    port = os.environ.get('PORT', 5000)
     app.debug = True
-    app.run(host='0.0.0.0', port=5000)
+    app.run(host='0.0.0.0', port=port)
