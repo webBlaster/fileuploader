@@ -44,7 +44,12 @@
         <button type="submit" class="btn blue">Upload</button>
     </form>
     <section class="container center">
-        <h4></h4>
+        <h4 class="white-text">Images</h4>
+
+        {% for image in images %}
+            <span><img class="img-responsive image" src="{{ image.url }}" title="{{image.tittle}}" data-id="{{image.id}}" /></span><br/>
+          {% endfor %}
+
     </section>
 
 <script>

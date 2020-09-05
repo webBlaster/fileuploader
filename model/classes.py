@@ -107,8 +107,22 @@ class Picture():
     def upload_image(self, tittle, image):
         image_name = secure_filename(image.filename)
         if image_name.lower().endswith(('.png', '.jpg', '.jpeg')):
-            #uploader.upload()
-            pass
+            #upload on cloudinary
+            result = uploader.upload(image)
+            if result['created_at']:
+                public_id = result['public_id']
+                url = result['secure_url']
+                new_picture = picture(
+                        tittle = tittle,
+                        public_id = public_id,
+                        url = url
+                        )
+
+                #Store picture details in database
+                db.session.add(new_picture)
+                db.session.commit()
+            else:
+                return result
         else:
             return {
                 "message":"only image files can be uploaded"
@@ -116,4 +130,5 @@ class Picture():
     def delete_image(self, id):
         pass
     def get_all_images(self):
-        pass
+        images = db.session.query(picture).all()
+        return images
