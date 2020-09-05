@@ -39,11 +39,11 @@
 
 
     <form action="{{url_for('register')}}" class="login center white" method="post">
-        <h5>REGISTER</h5>
-        <input type="email" name="email" class="input" placeholder="email" required/>
-        <input type="password" name="password" class="input" placeholder="password" required/>
+        <h5>Register</h5>
+        <input type="email" name="email" class="input" placeholder="Email" required/>
+        <input type="password" name="password" class="input" placeholder="Password" required/>
         <!--<input type="password" name="confirm" class="input" placeholder="confirm password" required/>-->
-        <input type="submit" value="register" class="btn input blue">
+        <button type="submit" class="btn input blue">Register</button>
     </form>
     <h6 class="center"><a href="{{url_for('signin')}}" class="white-text">Sign in</a></h6>
 </body>
