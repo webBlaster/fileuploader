@@ -22,7 +22,7 @@
     <style>
     </style>
 </head>
-<body class="green darken-3">
+<body class="blue darken-3">
 
         {% with messages = get_flashed_messages() %}
         {% if messages %}
@@ -52,7 +52,7 @@ const form = document.querySelector('.upload');
 
 const addImage = (event) => {
     event.preventDefault();
-    alert('i am powerful');
+    alert('sending to backend');
 }
 form.addEventListener('submit', addImage );
 </script>
