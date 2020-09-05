@@ -26,7 +26,7 @@ def signin():
         result = admin.login(email, password)
         if result['logged'] == True:
             flash(result['message'])
-            return render_template('dashboard.html')
+            return redirect(url_for('dashboard'))
         else:
             flash(result['message'])
             return redirect(url_for('index'))
@@ -59,14 +59,15 @@ def dashboard():
             image = request.files['image']
             result = picture.upload_image(tittle, image)
             print(result)
-            return "stuff"
-            #return render_template('dashboard.html', images=result)
+            flash('image uploaded')
+            return redirect(url_for('dashboard'))
         else:
             return redirect(url_for('index'))
     else:
         result = admin.auth_status()
         if result['logged'] == True:
-            return render_template('dashboard.html')
+            result = picture.get_all_images()
+            return render_template('dashboard.html', images=result)
         else:
             return redirect(url_for('index'))
 
