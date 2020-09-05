@@ -75,7 +75,7 @@ def dashboard():
 @app.route('/images', methods=['GET'])
 def all_images():
     result = picture.get_all_images()
-    return result
+    return jsonify(result)
 
 # Default port:
 if __name__ == '__main__':

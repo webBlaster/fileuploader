@@ -134,4 +134,11 @@ class Picture():
         pass
     def get_all_images(self):
         images = db.session.query(picture).all()
-        return images
+        image_list = []
+        for image in images:
+            image_list.append({
+                'id':image.id,
+                'tittle':image.tittle,
+                'url':image.url
+            })
+        return image_list
