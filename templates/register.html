@@ -23,6 +23,21 @@
     </style>
 </head>
 <body class="blue">
+
+
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+          <div class="green white-text">
+          {% for message in messages %}
+            <span>{{ message }}</span><br/>
+          {% endfor %}
+          </div>
+        {% endif %}
+      {% endwith %}
+
+
+
+
     <form action="{{url_for('register')}}" class="login center white" method="post">
         <h5>REGISTER</h5>
         <input type="email" name="email" class="input" placeholder="email" required/>
@@ -30,6 +45,6 @@
         <!--<input type="password" name="confirm" class="input" placeholder="confirm password" required/>-->
         <input type="submit" value="register" class="btn input blue">
     </form>
-    <a href="{{url_for('signin')}}"><h6 class="black">Register</h6></a>
+    <h6 class="center"><a href="{{url_for('signin')}}" class="white-text">Sign in</a></h6>
 </body>
 </html>
