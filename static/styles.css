@@ -1,13 +1,31 @@
+body {
+    margin:0;
+    padding:0;
+}
 .login {
     width:40%;
-    margin:20vh auto;
+    margin:20vh auto !important;
     padding:50px;
     border-radius: 10px;
+}
+.addimage {
+    width:30%;
+    margin:5vh auto !important;
+    padding:50px;
+    border-radius: 10px;
+}
+
+.addimage input {
+    margin:10px 0;
 }
 
 @media only screen and (max-width: 600px){
     .login {
         width:70%;
         padding:40px;
+    }
+    .addimage {
+        width:70%;
+        padding: 40px;
     }
 }

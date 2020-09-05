@@ -22,16 +22,39 @@
     <style>
     </style>
 </head>
-<body class="blue">
-    <form action="" class="login center white" method="POST">
+<body class="green darken-3">
+
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+          <div class="green white-text">
+          {% for message in messages %}
+            <span>{{ message }}</span><br/>
+          {% endfor %}
+          </div>
+        {% endif %}
+      {% endwith %}
+
+
+
+    <h6 class="center white-text"><a href="{{url_for('signout')}}" class="white-text">logout</a></h6>
+    <form  class="addimage upload center white" method="POST" enctype="multipart/form-data">
         <h5>ADD IMAGE</h5>
         <input type="text" name="title" class="input" placeholder="tittle" required/>
-        <input type="file" name="file" value="upload" class="input" required/><br/>
+        <input type="file" name="file" value="upload" class="input" accept="image/*" required/><br/>
         <input type="submit" value="upload" class="btn blue" />
     </form>
-
-    <div class="container center">
+    <section class="container center">
         <h4></h4>
-    </div>
+    </section>
+
+<script>
+const form = document.querySelector('.upload');
+
+const addImage = (event) => {
+    event.preventDefault();
+    alert('i am powerful');
+}
+form.addEventListener('submit', addImage );
+</script>
 </body>
 </html>
