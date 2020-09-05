@@ -59,7 +59,7 @@ def dashboard():
             image = request.files['image']
             result = picture.upload_image(tittle, image)
             print(result)
-            flash('image uploaded')
+            flash(result['message'])
             return redirect(url_for('dashboard'))
         else:
             return redirect(url_for('index'))
