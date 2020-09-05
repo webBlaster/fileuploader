@@ -9,11 +9,12 @@ def index():
 #sign out route
 @app.route('/signout', methods=['GET'])
 def signout():
-        result = admin.logout()
+        result = admin.auth_status()
         if result['logged'] == False:
             flash(result['message'])
             return redirect(url_for('index'))
         else:
+            admin.logout()
             return redirect(url_for('index'))
 
 #sign in route
@@ -32,7 +33,7 @@ def signin():
     else:
         return redirect(url_for('index'))
 
-# register route
+#register route
 @app.route('/register', methods=['POST','GET'])
 def register():
     if request.method == 'POST':
@@ -48,11 +49,20 @@ def register():
     else:
         return render_template('register.html')
 
-# dashboard route
+#dashboard route
 @app.route('/dashboard', methods=['POST','GET'])
 def dashboard():
     if request.method == 'POST':
-        return render_template('dashboard.html')
+        result = admin.auth_status()
+        if result['logged'] == True:
+            tittle = escape(request.form['tittle'])
+            image = request.files['image']
+            result = picture.upload_image(tittle, image)
+            print(result)
+            return "stuff"
+            #return render_template('dashboard.html', images=result)
+        else:
+            return redirect(url_for('index'))
     else:
         result = admin.auth_status()
         if result['logged'] == True:

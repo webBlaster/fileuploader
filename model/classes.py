@@ -1,6 +1,7 @@
   
 #security imports
 from werkzeug.security import generate_password_hash, check_password_hash
+from werkzeug.utils import secure_filename
 #imports for json
 from flask import jsonify
 #database imports
@@ -104,7 +105,14 @@ class Admin():
 
 class Picture():
     def upload_image(self, tittle, image):
-        pass
+        image_name = secure_filename(image.filename)
+        if image_name.lower().endswith(('.png', '.jpg', '.jpeg')):
+            #uploader.upload()
+            pass
+        else:
+            return {
+                "message":"only image files can be uploaded"
+                }
     def delete_image(self, id):
         pass
     def get_all_images(self):
