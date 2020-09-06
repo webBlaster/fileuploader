@@ -103,9 +103,7 @@ input{
     grid-row-end: span 5;
   }
   
-.card-action{
-    padding: 17px 18px !important;
-}
+
 
   .image-container::-webkit-scrollbar {
     display: none;
