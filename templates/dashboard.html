@@ -24,15 +24,15 @@
 </head>
 <body class="blue darken-3">
 
-        {% with messages = get_flashed_messages() %}
-        {% if messages %}
-          <div class="green white-text">
-          {% for message in messages %}
-            <span>{{ message }}</span><br/>
-          {% endfor %}
-          </div>
-        {% endif %}
-      {% endwith %}
+  {% with messages = get_flashed_messages(with_categories=True) %}
+  {% if messages %}
+    <div class="white-text">
+    {% for category, message in messages %}
+      <div class="{{ category }} message">{{ message }}</div><br/>
+    {% endfor %}
+    </div>
+  {% endif %}
+  {% endwith %}
 
 
 
