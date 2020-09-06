@@ -76,7 +76,16 @@ input{
     transition: background-color .6s;
     margin-top: 1rem !important;
     text-transform: none !important;
-    box-shadow: 0px 4px 17px rgba(0, 0, 0, 0.13) !important;
+    box-shadow: 0px 4px 17px rgba(0, 0, 0, 0.13) !important; 
+}
+
+.confirm__button{
+    width: 10%;
+    padding: 0rem 1.8rem !important;
+    border-radius: .10rem !important;
+    margin-top: 1rem !important;
+    font-size: .98rem !important;
+    box-shadow: 0px 4px 17px rgba(0, 0, 0, 0.13) !important
 }
 
 
