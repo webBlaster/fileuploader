@@ -1,17 +1,52 @@
 body {
     margin:0;
     padding:0;
+    box-sizing: border-box;
     overflow-x: hidden;
 }
 .login {
-    width:40%;
-    margin:20vh auto !important;
-    padding:50px;
+    width:30%;
+    margin:10vh auto !important;
+    padding:3rem 2rem;
     border-radius: 10px;
 }
+
+
+
 h5{
     color: #3f3f3f !important;
 }
+
+.new{
+    text-align: right !important;
+    margin-top: 1.5rem;
+}
+
+.new, a{
+    color: #3f3f3f !important;
+    font-size: .98rem !important;
+}
+a:hover{
+  text-decoration: underline;
+}
+
+.logo{
+    width: 30%;
+}
+
+.signin__redirect{
+    text-align: right !important;
+    margin-top: 1.5rem;
+}
+.signin__redirect, a{
+    color: #3f3f3f !important;
+    font-size: .98rem !important;
+}
+
+input{
+    margin: 1rem 0 !important;
+}
+
 .addimage {
     width:30%;
     margin:5vh auto !important;
@@ -25,10 +60,11 @@ h5{
 
 
 .btn{
+    width: 100%;
     padding: 0rem 1.8rem !important;
     border-radius: .10rem !important;
     color: white;
-    font-size: .95rem !important;
+    font-size: .98rem !important;
     transition: background-color .6s;
     margin-top: 1rem !important;
     text-transform: none !important;
