@@ -29,17 +29,17 @@ class Admin():
                 db.session.add(new_user)
                 db.session.commit()
                 return {
-                        "message":"new user registered",
+                        "message":"New user registered",
                         "registered": False
                         }
             else:
                 return {
-                        "message":"Admin already exists",
+                        "message":"Admin already exist",
                         "registered": False
                         }          
         else:
             return {
-                    "message":"make sure to fill in all fields",
+                    "message":"Make sure to fill in all fields",
                     "registered": False 
                     }
 
@@ -48,7 +48,7 @@ class Admin():
         if email and password is not None:
             if 'email' in session:
                 return {
-                        "message": "user already signed in",
+                        "message": "User already signed in",
                         "email": session['email'],
                         "id": session['id'],
                         "logged": True
@@ -57,7 +57,7 @@ class Admin():
             check = db.session.query(admin).filter_by(email = email).first()
             if check == None:
                 return {
-                        "message": "the email provided is not registered",
+                        "message": "The email provided is not registered",
                         "logged": False 
                     }
         #check if password matches        
@@ -68,17 +68,17 @@ class Admin():
                     session['id'] = check.id
                     session['email'] = check.email
                     return {
-                        "message": "login successful",
+                        "message": "Login successful",
                         "logged": True
                         }
                 else:
                     return {
-                        "message": "password incorrect",
+                        "message": "Password incorrect",
                         "logged": False 
                     }
         else:
             return {
-                    "message": "really!! post man?",
+                    "message": "Really!! post man?",
                     "logged": False 
                     }
     
@@ -88,18 +88,18 @@ class Admin():
         del session['email']
         
         return {
-                "message": "user logged out",
+                "message": "User logged out",
                 "logged": False 
                 }
     def auth_status(self):
         if 'email' in session:
             return {
-                "message":"user is logged in",
+                "message":"User is logged in",
                 "logged":True
                 }
         else:
             return {
-                    "message": "user logged out",
+                    "message": "User logged out",
                     "logged": False 
                     }
 
@@ -124,13 +124,13 @@ class Picture():
                 db.session.add(new_picture)
                 db.session.commit()
                 return {
-                "message":"upload successful"
+                "message":"Upload successful"
                 }
             else:
                 return result
         else:
             return {
-                "message":"only image files can be uploaded"
+                "message":"Only image files can be uploaded"
                 }
     def delete_image(self, id):
         #get dictionary from db with id
@@ -145,12 +145,12 @@ class Picture():
             db.session.delete(image)
             db.session.commit()
             return {
-                "message":"image deleted",
+                "message":"Image deleted",
                 "deleted":True
                 }
         else:
             return {
-                "message":"image failed to delete try again later",
+                "message":"Image failed to delete, try again later",
                 "deleted":False
                 }
 
