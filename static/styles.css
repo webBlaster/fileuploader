@@ -2,7 +2,6 @@ body {
     margin:0;
     padding:0;
     box-sizing: border-box;
-    border: 0;
 }
 .login {
     width:30%;
