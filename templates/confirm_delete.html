@@ -34,10 +34,10 @@
         {% endif %}
       {% endwith %}
         
-    <div class="center">
+    <form action="{{url_for('delete_image', id=id)}}" class="center" method="POST">
         <h5 class="white-text">Are you sure you want to delete Image ?</h5>
-        <div class="center white-text btn"><a href="{{url_for('delete_image', id=id.id)}}" class="white-text">Yes</a></div>
+        <button type="submit" class="center white-text btn">Yes</button>
         <div class="center white-text btn"><a href="{{url_for('dashboard')}}" class="white-text">No</a></div>
-    </div>
+    </form>
 </body>
 </html>
