@@ -91,7 +91,7 @@ input{
     padding: 2rem 4rem;
   }
   
-  .image-container .card {
+  .image-container .card__container .card {
     width: 100%;
     background-size: cover;
     background-position: 100%;
