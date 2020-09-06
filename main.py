@@ -11,11 +11,11 @@ def index():
 def signout():
         result = admin.auth_status()
         if result['logged'] == False:
-            flash(result['message'])
+            flash(result['message'], 'green')
             return redirect(url_for('index'))
         else:
             result = admin.logout()
-            flash(result['message'])
+            flash(result['message'], 'green')
             return redirect(url_for('index'))
 
 #sign in route
@@ -26,10 +26,10 @@ def signin():
         password = escape(request.form['password'])
         result = admin.login(email, password)
         if result['logged'] == True:
-            flash(result['message'])
+            flash(result['message'], 'green')
             return redirect(url_for('dashboard'))
         else:
-            flash(result['message'])
+            flash(result['message'], 'red')
             return redirect(url_for('index'))
     else:
         return redirect(url_for('index'))
@@ -42,10 +42,10 @@ def register():
         password = escape(request.form['password'])
         result = admin.signup(email, password)
         if result['registered'] == True:
-            flash(result['message'])
+            flash(result['message'], 'green')
             return redirect(url_for('index'))
         else:
-            flash(result['message'])
+            flash(result['message'], 'orange')
             return render_template('register.html')
     else:
         return render_template('register.html')
@@ -60,7 +60,7 @@ def dashboard():
             image = request.files['image']
             result = picture.upload_image(tittle, image)
             print(result)
-            flash(result['message'])
+            flash(result['message'], 'green')
             return redirect(url_for('dashboard'))
         else:
             return redirect(url_for('index'))
@@ -85,7 +85,7 @@ def delete_image(id):
     if status['logged'] == True:
         if request.method == 'POST':
             result = picture.delete_image(id)
-            flash(result['message'])
+            flash(result['message'], 'green')
             return redirect(url_for('dashboard'))
         else:
             return render_template('confirm_delete.html',id=id)

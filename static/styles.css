@@ -11,7 +11,10 @@ body {
     border-radius: 10px;
 }
 
-
+.message {
+    width:100%;
+    margin:0;
+}
 
 h5{
     color: #3f3f3f !important;
