@@ -14,7 +14,8 @@ def signout():
             flash(result['message'])
             return redirect(url_for('index'))
         else:
-            admin.logout()
+            result = admin.logout()
+            flash(result['message'])
             return redirect(url_for('index'))
 
 #sign in route
@@ -80,12 +81,17 @@ def all_images():
 #delete image
 @app.route('/delete_image/<int:id>', methods=['GET','POST'])
 def delete_image(id):
-    if request.method == 'POST':
-        result = picture.delete_image(id)
-        flash(result['message'])
-        return redirect(url_for('dashboard'))
+    status = admin.auth_status()
+    if status['logged'] == True:
+        if request.method == 'POST':
+            result = picture.delete_image(id)
+            flash(result['message'])
+            return redirect(url_for('dashboard'))
+        else:
+            return render_template('confirm_delete.html',id=id)
     else:
-        return render_template('confirm_delete.html',id=id)
+        return redirect(url_for('index'))
+
 
 # Default port:
 if __name__ == '__main__':
