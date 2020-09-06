@@ -85,7 +85,7 @@ def delete_image(id):
         flash(result['message'])
         return redirect(url_for('dashboard'))
     else:
-        return render_template('confirm_delete.html', id=id)
+        return render_template('confirm_delete.html',id=id)
 
 # Default port:
 if __name__ == '__main__':

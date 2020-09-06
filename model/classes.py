@@ -142,6 +142,8 @@ class Picture():
 
         #based on the respose delete from db or return error message
         if result['result'] == 'ok':
+            db.session.delete(image)
+            db.session.commit()
             return {
                 "message":"image deleted",
                 "deleted":True
