@@ -54,9 +54,7 @@
                     <img src="{{ image.url }}">
                     <span class="card-title">{{ image.tittle }}</span>
                   </div>
-                  <div class="card-action">
-                      <a href="{{url_for('delete_image', id=image.id)}}" class="white-text red darken-3 btn">delete</a>
-                  </div>
+                  <a href="{{url_for('delete_image', id=image.id)}}" class="white-text red darken-3 btn">delete</a>
                 </div>
           {% endfor %}
 
