@@ -94,10 +94,12 @@ class Admin():
     def auth_status(self):
         if 'email' in session:
             return {
+                "message":"user is logged in",
                 "logged":True
                 }
         else:
             return {
+                    "message": "user logged out",
                     "logged": False 
                     }
 
@@ -131,9 +133,29 @@ class Picture():
                 "message":"only image files can be uploaded"
                 }
     def delete_image(self, id):
-        pass
+        #get dictionary from db with id
+        image = db.session.query(picture).filter_by(id = id).first()
+        public_id = image.public_id
+
+        #delete picture on cloudinary with the public_id
+        result = uploader.destroy(public_id)
+
+        #based on the respose delete from db or return error message
+        if result['result'] == 'ok':
+            db.session.delete(image)
+            db.session.commit()
+            return {
+                "message":"image deleted",
+                "deleted":True
+                }
+        else:
+            return {
+                "message":"image failed to delete try again later",
+                "deleted":False
+                }
+
     def get_all_images(self):
-        images = db.session.query(picture).all()
+        images = db.session.query(picture).order_by(picture.id.desc()).all()
         image_list = []
         for image in images:
             image_list.append({
