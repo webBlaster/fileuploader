@@ -2,6 +2,7 @@ body {
     margin:0;
     padding:0;
     box-sizing: border-box;
+    overflow-x: hidden;
 }
 .login {
     width:30%;
@@ -70,11 +71,29 @@ input{
     box-shadow: 0px 4px 17px rgba(0, 0, 0, 0.13) !important;
 }
 
-.image {
-    width:50%;
-}
+
+.image-container {
+    margin:0;
+    width: 100%;
+    white-space: nowrap;
+    overflow: auto;
+  }
+  
+  .image-container .card {
+    display: inline-block;
+    margin: 4%;
+    width: 30%;
+  }
+  
+  .image-container::-webkit-scrollbar {
+    display: none;
+  }
 
 @media only screen and (max-width: 600px){
+    .image-container .card {
+        margin: 4%;
+        width: 80%;
+      }
     .login {
         width:70%;
         padding:40px;
