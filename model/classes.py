@@ -155,7 +155,7 @@ class Picture():
                 }
 
     def get_all_images(self):
-        images = db.session.query(picture).all()
+        images = db.session.query(picture).order_by(picture.id.desc()).all()
         image_list = []
         for image in images:
             image_list.append({
