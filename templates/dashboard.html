@@ -41,7 +41,7 @@
         <h5>Add Image Here</h5>
         <input type="text" name="tittle" class="input" placeholder="Title" required/>
         <input type="file" name="image" value="upload" class="input" accept="image/*" required/><br/>
-        <button type="submit" class="btn blue">Upload</button>
+        <button type="submit" class="btn upload__btn blue">Upload</button>
     </form>
         <h4 class="white-text center">Images</h4>
       <div class="image-container">
@@ -54,7 +54,7 @@
                     <img src="{{ image.url }}">
                     <span class="card-title">{{ image.tittle }}</span>
                   </div>
-                <a href="{{url_for('delete_image', id=image.id)}}" class="white-text red darken-3 btn">delete</a>
+                <a href="{{url_for('delete_image', id=image.id)}}" class="white-text red darken-3 btn delete__button">Delete</a>
               </div>
               
                 </div>
