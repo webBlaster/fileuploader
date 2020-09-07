@@ -67,7 +67,7 @@ input{
 }
 
 
-.btn{
+.login__btn, .register__btn, .upload__btn{
     width: 100%;
     padding: 0rem 1.8rem !important;
     border-radius: .10rem !important;
@@ -79,8 +79,16 @@ input{
     box-shadow: 0px 4px 17px rgba(0, 0, 0, 0.13) !important; 
 }
 
+.confirm__form{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem 1rem;
+}
+
 .confirm__button{
-    width: 10%;
+    width: 20%;
     padding: 0rem 1.8rem !important;
     border-radius: .10rem !important;
     margin-top: 1rem !important;
@@ -90,13 +98,11 @@ input{
 
 
 .image-container {
-    grid-row-gap: 30px;
-    grid-column-gap: 40px;
-    -moz-column-gap: 40px;
-    column-gap: 40px;
     display: grid;
-    grid-template-columns: repeat(auto-fill,minmax(390px,1fr));
-    grid-auto-rows: 50px;
+    grid-template-columns: repeat(auto-fit, minmax(263px, 1fr));
+    grid-auto-rows: minmax(150px, 1fr);
+    grid-gap: 2rem;
+    grid-auto-flow: dense;
     padding: 2rem 4rem;
   }
   
@@ -113,6 +119,18 @@ input{
   }
   
 
+.red{
+    margin-top: 0 !important;
+    color: rgb(221, 20, 20) !important;
+    width: 100%;
+    padding: 0rem 1.8rem !important;
+}
+
+.card__container{
+    display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
   .image-container::-webkit-scrollbar {
     display: none;
@@ -130,5 +148,8 @@ input{
     .addimage {
         width:70%;
         padding: 40px;
+    }
+    .confirm__button{
+        width: 100%;
     }
 }
