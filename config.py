@@ -2,7 +2,9 @@ from flask import Flask
 import cloudinary
 import os
 from flask_cors import CORS
+from flask_talisman import Talisman
 app = Flask(__name__)
+Talisman(app)
 CORS(app)
 app.config['SECRET_KEY'] = 'JFDDJjddjffjfffj88-999*h:dkdjffff'
 app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URL')
